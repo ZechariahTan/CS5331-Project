@@ -1,6 +1,6 @@
 {
-  "name": "Getting Started Example",
-  "description": "Build an Extension!",
+  "name": "Malicious MITB simple extension",
+  "description": "Attempts to replaces search fields in webpages with dummy fields",
   "version": "1.0",
   "manifest_version": 3,
   "background": {
