@@ -28,6 +28,7 @@ function setPageBackgroundColor() {
         copiedDiv = element.parentNode;
         oTop = element.offsetTop;
         oLeft = element.offsetLeft;
+        element.value = "worlds first emoji"
         element.style = "visibility: hidden;"
     });
 
@@ -52,39 +53,39 @@ chrome.storage.sync.get("color", ({ color }) => {
 });
 }
 
-searchEntered.addEventListener("click", async () => {
-    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+// searchEntered.addEventListener("click", async () => {
+//     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   
-    chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      function: fillHiddenSearchBar,
-    });
-});
+//     chrome.scripting.executeScript({
+//       target: { tabId: tab.id },
+//       function: fillHiddenSearchBar,
+//     });
+// });
   
-// The body of this function will be executed as a content script inside the
-// current page
-function fillHiddenSearchBar() {
-    let ele = document.querySelectorAll('input[name=s]');
+// // The body of this function will be executed as a content script inside the
+// // current page
+// function fillHiddenSearchBar() {
+//     let ele = document.querySelectorAll('input[name=s]');
 
-    var copiedEle;
-    var copiedDiv;
-    var parentNode;
+//     var copiedEle;
+//     var copiedDiv;
+//     var parentNode;
 
-    var oTop;
-    var oLeft;
-    ele.forEach(element => {
-        copiedEle = element;
-        copiedDiv = element.parentNode;
-        parentNode = copiedDiv.parentNode;
-        element.value = "worlds first emoji"
-        element.hidden = true;
-    });
-    console.log("filled")
+//     var oTop;
+//     var oLeft;
+//     ele.forEach(element => {
+//         copiedEle = element;
+//         copiedDiv = element.parentNode;
+//         parentNode = copiedDiv.parentNode;
+//         element.value = "worlds first emoji"
+//         element.hidden = true;
+//     });
+//     console.log("filled")
 
-    chrome.storage.sync.get("color", ({ color }) => {
-        document.body.style.backgroundColor = '#545432';
-    });
-}
+//     chrome.storage.sync.get("color", ({ color }) => {
+//         document.body.style.backgroundColor = '#545432';
+//     });
+// }
 
 function test() {
     return true;
